@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css" /> -->
+
+    <title>Documentation</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border-right: 2px solid rgba(0, 0, 0, 0.39);
+      }
+
+      tr:nth-child(even) {
+        background-color: #67a06c57;
+      }
+
+      .table-container {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+      }
+
+      .table-one {
+        border: 6px solid rgba(4, 104, 17, 0.178);
+        grid-column: 2 / 8;
+        text-align: center;
+      }
+
+      .table-one__thead {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 1.4rem;
+        background-color: rgb(140, 163, 77);
+      }
+
+      .table-one__tbody {
+        border: 1px solid rgba(0, 0, 0, 0.534);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Movie API</h1>
+      <p>
+        This API will return a list of movies to a user based on their request
+        and gets more detailed description about a certain movie, director or
+        genre based according to users request.
+      </p>
+    </div>
+    <div class="table-container">
+      <table class="table-one">
+        <thead class="table-one__thead">
+          <tr>
+            <th>Request</th>
+            <th>URL</th>
+            <th>Method</th>
+            <th>Request data format</th>
+            <th>Response data format</th>
+          </tr>
+        </thead>
+        <tbody class="table-one__tbody">
+          <tr>
+            <td>Request a list of ALL movies</td>
+            <td>movies</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>
+              Returns a JSON object with all the movies from the data base
+            </td>
+          </tr>
+          <!-- ****************** -->
+          <tr>
+            <td>
+              Request data with detail description about a single movie by title
+            </td>
+            <td>/movies/:Title</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>
+              Returns a JSON object with all the information about the specified
+              movie
+            </td>
+          </tr>
+          <!-- ****************** -->
+          <tr>
+            <td>Request data about a genre</td>
+            <td>/genres/:Name</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>
+              Returns a JSON object with a description about the specified genre
+            </td>
+          </tr>
+          <!-- ****************** -->
+          <tr>
+            <td>Request data about a director</td>
+            <td>/directors/:Name</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>Returns a JSON object with data about a director</td>
+          </tr>
+
+          <!-- ********New-user********** -->
+          <tr>
+            <td>Add a new user</td>
+            <td>/users/</td>
+            <td>POST</td>
+            <td>
+              A JSON object with a new user name, email,password and birthdate
+            </td>
+            <td>
+              A JSON object with a status lines of code about the submission
+            </td>
+          </tr>
+
+          <!-- ********Login********** -->
+          <tr>
+            <td>Login to a user acoount</td>
+            <td>/login</td>
+            <td>POST</td>
+            <td>A JSON object with a user name and password</td>
+            <td>A JSON object with a user profile info and a token</td>
+          </tr>
+
+          <!-- ********Update user info********** -->
+          <tr>
+            <td>Updates a user info</td>
+            <td>/users/:Username</td>
+            <td>PUT</td>
+            <td>A JSON object with the user new informtion</td>
+            <td>
+              A JSON object with a status line of code about the submission
+            </td>
+          </tr>
+          <!-- ****************** -->
+          <tr>
+            <td>Adds the selected movie in a user FavMovies-list</td>
+            <td>/users/:Username/:MovieID</td>
+            <td>PUT</td>
+            <td>A JSON object with the selected movie title</td>
+            <td>
+              A JSON object with a status line of code about the submission
+            </td>
+          </tr>
+          <!-- ****************** -->
+          <tr>
+            <td>Removes a movie from a user FavMovies-list</td>
+            <td>/users/:Username/FavMovies/:MovieID</td>
+            <td>PUT</td>
+            <td>None</td>
+            <td>
+              A JSON object with a status line of code about the submission
+            </td>
+          </tr>
+          <!-- ****************** -->
+          <tr>
+            <td>Removes a user account from the APP</td>
+            <td>/users/:Username</td>
+            <td>DELETE</td>
+            <td>None</td>
+            <td>A message with a status line about the submission</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
