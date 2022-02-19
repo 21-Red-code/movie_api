@@ -29,20 +29,20 @@ require('dotenv/config');
 //mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 //  for connecting with MongoDB Atlas 
-// mongoose.connect(
-//   process.env.classic_movies, 
-//   { useNewUrlParser: true, 
-//     useUnifiedTopology: true 
-//   }
-// ); 
-
-//to push any changes to Heroku
 mongoose.connect(
-  process.env.ClassicMovies_URI, 
+  process.env.classic_movies, 
   { useNewUrlParser: true, 
     useUnifiedTopology: true 
   }
 ); 
+
+//to push any changes to Heroku
+// mongoose.connect(
+//   process.env.ClassicMovies_URI, 
+//   { useNewUrlParser: true, 
+//     useUnifiedTopology: true 
+//   }
+// ); 
 
 const Movies = Models.Movie;
 const Directors = Models.Director;

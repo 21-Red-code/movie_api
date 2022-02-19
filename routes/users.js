@@ -6,9 +6,9 @@ require('../passport');
 const Models = require('../models.js');
 mongoose = require('mongoose');
 
-const Movies = Models.Movie;
-const Directors = Models.Director;
-const Genres = Models.Genre;
+// const Movies = Models.Movie;
+// const Directors = Models.Director;
+// const Genres = Models.Genre;
 const Users = Models.User;
 
 
@@ -16,7 +16,7 @@ const Users = Models.User;
 const {check, validationResult} = require('express-validator');
 
 
-//********************************New user registration
+//****************************New user registration
 router.post('/', [
     check('Username', 'Username is required').isLength({min: 3}),
     check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
