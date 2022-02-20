@@ -37,12 +37,12 @@ require('dotenv/config');
 // ); 
 
 //to push any changes to Heroku
-mongoose.connect(
-  process.env.ClassicMovies_URI, 
-  { useNewUrlParser: true, 
-    useUnifiedTopology: true 
-  }
-); 
+// mongoose.connect(
+//   process.env.ClassicMovies_URI, 
+//   { useNewUrlParser: true, 
+//     useUnifiedTopology: true 
+//   }
+// ); 
 
 const Movies = Models.Movie;
 const Directors = Models.Director;
