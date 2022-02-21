@@ -49,7 +49,6 @@ router.post('/', [
     })
 })
 
-
 //*********************Request update for a user info
 router.put('/:Username',  [
     check('Username', 'Username is required').isLength({min: 3}),
@@ -113,7 +112,7 @@ router.put('/:Username/FavMovies/:MovieID',  passport.authenticate('jwt', { sess
 });
 
 //******************Test route, to get a user by name
-router.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req,res) => {
+router.get('/:Username/user', passport.authenticate('jwt', { session: false }), (req,res) => {
   Users.findOne({ Username: req.params.Username })
     .then((user) => {
       res.json(user);
