@@ -27,6 +27,7 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
+    "jsdoc": "^3.6.10",
     "nodemon": "^2.0.15"
   }
 }

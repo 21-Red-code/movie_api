@@ -10,7 +10,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //(app) argument makes express to be available in auth.js as well
 let auth = require('./auth')(app);
 
-//Import Routes
+/**
+ * to import routes from routes folder
+ */
 const moviesRoute = require('./routes/movies');
 const usersRoute = require('./routes/users');
 const directorsRoute = require('./routes/directors');

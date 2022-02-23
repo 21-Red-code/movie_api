@@ -16,7 +16,10 @@ const Users = Models.User;
 const {check, validationResult} = require('express-validator');
 
 
-//****************************New user registration
+/**
+ * Add a new user to the database
+ * @return A JSON object with a status lines of code about the submission
+ */
 router.post('/', [
     check('Username', 'Username is required').isLength({min: 3}),
     check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
