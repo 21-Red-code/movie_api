@@ -96,10 +96,8 @@ router.put('/:Username/:MovieID',  passport.authenticate('jwt', { session: false
   });
 });
 
-
-
 //********************Request for a user to remove a movie from their fav-movie list 
-router.put('/:Username/FavMovies/:MovieID',  passport.authenticate('jwt', { session: false }), (req, res) => {
+router.delete('/:Username/FavMovies/:MovieID',  passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
       $pull: { FavMovies: req.params.MovieID }
     },
