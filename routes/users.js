@@ -5,7 +5,7 @@ require('../passport');
 
 const Models = require('../models.js');
 mongoose = require('mongoose');
-if( !mongoose.Types.ObjectId.isValid(id) ) return false;
+//if( !mongoose.Types.ObjectId.isValid(id) ) return false;
 
 
 // const Movies = Models.Movie;
