@@ -128,7 +128,7 @@ router.get('/:Username/user', passport.authenticate('jwt', { session: false }), 
 
 //************get user favorite movies list */
 router.get('/:Username/:FavMovies', passport.authenticate('jwt', { session: false }), (req,res) => {
-  Users.Username.FavMovies.find()
+  Users.findOne({ Username: req.params.Username})
     .then((FavMovies) => {
       res.json(FavMovies);
     })
