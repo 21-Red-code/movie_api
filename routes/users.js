@@ -126,6 +126,19 @@ router.get('/:Username/user', passport.authenticate('jwt', { session: false }), 
     });
 });
 
+//************get user favorite movies list */
+router.get('/:Username/:FavMovies', passport.authenticate('jwt', { session: false }), (req,res) => {
+  Users.Username.FavMovies.find()
+    .then((FavMovies) => {
+      res.json(FavMovies);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error:' + err);
+    });
+});
+
+
 //**********************Request for a user to remove their account from the app
 router.delete('/:Username', [
     check('Username', 'Username is required').isLength({min: 3}),
