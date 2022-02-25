@@ -85,7 +85,7 @@ router.put('/:Username',  [
 //****************Request for a user to add movie to thier fav-movies list 
 router.put('/:Username/:MovieID',  passport.authenticate('jwt', { session: false }),(req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
-      $push: { FavMovies: req.params.MovieID, Title, ImagePath }
+      $push: { FavMovies: req.params.MovieID }
     },
     { new: true }, 
   (err, updateUser) => {
