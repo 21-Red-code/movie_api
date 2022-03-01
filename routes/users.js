@@ -83,7 +83,7 @@ router.put('/:Username',  [
 
 
 //****************Request for a user to add movie to thier fav-movies list 
-router.put('/:Username/:Title',  passport.authenticate('jwt', { session: false }),(req, res) => {
+router.put('/:Username/FavMovies/:MovieId',  passport.authenticate('jwt', { session: false }),(req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
       $push: { FavMovies: req.params.MovieID }
     },
@@ -125,19 +125,6 @@ router.get('/:Username/user', passport.authenticate('jwt', { session: false }), 
       res.status(500).send('Error:' + err);
     });
 });
-
-//************get user favorite movies list */
-// router.get('/:Username/:FavMovies', passport.authenticate('jwt', { session: false }), (req,res) => {
-//   Users.findOne({ Username: req.params.Username})
-//     .then((FavMovies) => {
-//       res.json(FavMovies);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       res.status(500).send('Error:' + err);
-//     });
-// });
-
 
 //**********************Request for a user to remove their account from the app
 router.delete('/:Username', [

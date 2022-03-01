@@ -30,20 +30,6 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => 
     });
 }); 
 
-// For Task no. 3.4: Advanced React
-// router.get('/', function (req, res) {
-//   Movies.find()
-//     .then(function (movies) {
-//       res.json(movies);
-//       //res.status(201).json(movies);
-//     })
-//     .catch(function (error) {
-//       console.error(error);
-//       res.status(500).send("Error: " + error);
-//     });
-// });
-
-
 //******************************Find movie by title
 router.get('/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({Title: req.params.Title})
