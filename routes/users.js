@@ -33,7 +33,7 @@ router.post('/', [
     let errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      // (422)- unprocessable Entity
+      // (422) - unprocessable Entity
       return res.status(422).json({ errors: errors.array() });
     }
 
