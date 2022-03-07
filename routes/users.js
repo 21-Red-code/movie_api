@@ -54,7 +54,7 @@ router.post('/', [
     })
 })
 
-//*********************Request update for a user info
+//********************* Request update for a user info
 router.put('/:Username',  [
     check('Username', 'Username is required').isLength({min: 3}),
     check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
@@ -82,7 +82,7 @@ router.put('/:Username',  [
 
 
 
-//****************Request for a user to add movie to thier fav-movies list 
+//**************** Request for a user to add movie to thier fav-movies list 
 router.put('/:Username/:MovieId',  passport.authenticate('jwt', { session: false }),(req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
       $push: { FavMovies: req.params.MovieId }
@@ -98,7 +98,7 @@ router.put('/:Username/:MovieId',  passport.authenticate('jwt', { session: false
   });
 });
 
-//********************Request for a user to remove a movie from their fav-movie list 
+//******************** Request for a user to remove a movie from their fav-movie list 
 router.put('/:Username/FavMovies/:MovieID',  passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
       $pull: { FavMovies: req.params.MovieID }
