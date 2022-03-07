@@ -7,16 +7,13 @@ const Models = require('../models.js');
 mongoose = require('mongoose');
 //if( !mongoose.Types.ObjectId.isValid(id) ) return false;
 
-
 // const Movies = Models.Movie;
 // const Directors = Models.Director;
 // const Genres = Models.Genre;
 const Users = Models.User;
 
-
 // import express-validator 
 const {check, validationResult} = require('express-validator');
-
 
 /**
  * Add a new user to the database
