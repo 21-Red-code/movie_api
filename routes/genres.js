@@ -17,7 +17,15 @@ const Users = Models.User;
 const {check, validationResult} = require('express-validator');
 
 
-//**************Get more info about a genre by name 
+/**
+ * GET request to the /Genres/[Name] endpoint. To get a genre by name.
+ * @method GET 
+ * @param {string} URL
+ * @example /genres/Horror
+ * @param {authenticationCallback} 
+ * @param {requestCallback}
+ * @returns {Object} An object containing details about a genre which included in the URL.
+ */
 router.get('/:Name', passport.authenticate('jwt', { session: false }), (req, res) => {
     Genres.findOne({Name: req.params.Name })
       .then((genres) => {

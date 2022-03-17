@@ -14,11 +14,17 @@ const Users = Models.User;
 
 // import express-validator 
 const {check, validationResult} = require('express-validator');
-//  const { route } = require('./movies');
 
 
-
-//**************Get more info about a director by name 
+/**
+ * GET request to the /Directors/[Name] endpoint. To get a director by name
+ * @method GET 
+ * @param {string} URL
+ * @example /director/John Doe
+ * @param {authenticationCallback} 
+ * @param {requestCallback}
+ * @returns {Object} An object containing info about a director which included in the URL.
+ */
 router.get('/:Name', passport.authenticate('jwt', { session: false }), (req, res) => {
   Directors.findOne({Name: req.params.Name })
       .then((directors) => {
